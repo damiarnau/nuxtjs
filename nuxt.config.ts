@@ -29,7 +29,21 @@ export default defineNuxtConfig({
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/strapi", "@nuxtjs/tailwindcss"],
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: true,
+    // and more...
+  },
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    token: process.env.STRAPI_TOKEN || undefined,
+    prefix: '/api',
+    admin: '/admin',
+    version: 'v5',
+    cookie: {},
+    cookieName: 'strapi_jwt'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
