@@ -1,5 +1,5 @@
 <template>
-    <img :src="getStrapiMedia(image.formats.small?.url)" alt="Article Image" />
+    <img :src="getStrapiMedia(image)" alt="Article Image" />
 </template>
 
 <script setup lang="ts">
@@ -9,10 +9,22 @@ defineProps<{
             small?: {
                 url: string
             }
+            thumbnail?: {
+                url: string
+            }
+            medium?: {
+                url: string
+            }
+            large?: {
+                url: string
+            }
+            original?: {
+                url: string
+            }
         }
     }
 }>()
-function getStrapiMedia(path?: string): string | undefined {
+function getStrapiMedia(path?: any): string | undefined {
     // if (!path) return null
     // const config = useRuntimeConfig()
 
@@ -21,6 +33,6 @@ function getStrapiMedia(path?: string): string | undefined {
     // const cleanedPath = path.startsWith('/') ? path : `/${path}`
 
     // return baseURL + cleanedPath
-    return path
+    return path?.formats?.small?.url || path?.url
 }
 </script>
