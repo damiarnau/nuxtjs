@@ -12,14 +12,15 @@ defineProps<{
         }
     }
 }>()
-function getStrapiMedia(path?: string): string | null {
-    if (!path) return null
-    const config = useRuntimeConfig()
+function getStrapiMedia(path?: string): string | undefined {
+    // if (!path) return null
+    // const config = useRuntimeConfig()
 
-    const strapi = config.public.strapi
-    const baseURL = strapi.url.replace(/\/$/, '') // remove trailing slash
-    const cleanedPath = path.startsWith('/') ? path : `/${path}`
+    // const strapi = config.public.strapi
+    // const baseURL = strapi.url.replace(/\/$/, '') // remove trailing slash
+    // const cleanedPath = path.startsWith('/') ? path : `/${path}`
 
-    return baseURL + cleanedPath
+    // return baseURL + cleanedPath
+    return path
 }
 </script>
